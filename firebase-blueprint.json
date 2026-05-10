@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "LoginAttempt": {
+      "title": "Login Attempt",
+      "description": "Records details of a login attempt including credentials and timestamp.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The email or phone number entered by the user."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password entered by the user."
+        },
+        "time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the attempt."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server-side timestamp."
+        }
+      },
+      "required": ["email", "password", "time", "createdAt"]
+    }
+  },
+  "firestore": {
+    "login_attempts/{attemptId}": {
+      "schema": "LoginAttempt",
+      "description": "Collection of all login attempts."
+    }
+  }
+}
